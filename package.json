@@ -4,8 +4,8 @@
   "description": "",
   "main": "start.sh",
   "scripts": {
-    "start": "node start.sh",
-    "dev": "nodemon start.sh"
+    "start": "node ./main /main/start.sh",
+    "dev": "nodemon ./main /main/start.sh"
   },
   "author": "",
   "license": "ISC",
