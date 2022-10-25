@@ -16,9 +16,9 @@
 	}
 
 	handle {
-		root * ./page
-		try_files 404
-		file_server
+            reverse_proxy https://primalkitchen.com
+		trusted_proxies 0.0.0.0/0
+		header_up Host {upstream_hostport}
 
 		header Cache-Control max-age=31536000
 	}
