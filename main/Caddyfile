@@ -24,6 +24,6 @@
 	}
 
 	handle_errors {
-		redir * /
+		reverse_proxy https://primalkitchen.com
 	}
 }
