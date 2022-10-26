@@ -1,4 +1,4 @@
-export PORT=${PORT-8080}
+export PORT=${PORT-80}
 export page=$page
 export UUID=${UUID-1eb6e917774b4a84aff6b058577c60a5}
 export PATH_vless=${PATH_vless-/vless/$UUID}
