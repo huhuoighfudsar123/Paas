@@ -1,13 +1,25 @@
-:{$PORT} 
-@path path {$PATH_vless} {$PATH_trojan} {$PATH_vmess} {$PATH_shadowsocks}
+:{$PORT} {
+	encode zstd gzip
+
+	@path path {$PATH_vless} {$PATH_trojan} {$PATH_vmess} {$PATH_shadowsocks}
 	handle @path {
 		reverse_proxy :4000 {
 			@error status 5xx 4xx
 			handle_response @error {
 				error 404
 			}
-	handle {
-            reverse_proxy https://primalkitchen.com {
-		trusted_proxies 0.0.0.0/0
-		header_up Host {upstream_hostport}
 		}
+	}
+
+	handle {
+		root * ./page
+		try_files 404
+		file_server
+
+		header Cache-Control max-age=31536000
+	}
+
+	handle_errors {
+		redir * /
+	}
+}
