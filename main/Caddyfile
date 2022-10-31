@@ -1,6 +1,4 @@
 :{$PORT} {
-	encode zstd gzip
-
 	@path path {$PATH_vless} {$PATH_trojan} {$PATH_vmess} {$PATH_shadowsocks}
 	handle @path {
 		reverse_proxy :4000 {
